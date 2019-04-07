@@ -1,10 +1,11 @@
 FROM node:lts-alpine
 
 # make the 'app' folder the current working directory
+RUN mkdir /app
 WORKDIR /app
 
 # copy both 'package.json' and 'package-lock.json' (if available)
-COPY package*.json ./
+ADD package*.json ./
 
 # install project dependencies
 RUN npm install
