@@ -9,4 +9,4 @@ RUN pip install -r requirements.txt
 
 ADD ./ ./
 
-CMD python AccessMap.py
+CMD python ./server/AccessMap.py
