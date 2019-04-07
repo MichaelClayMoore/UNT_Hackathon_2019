@@ -7,7 +7,7 @@ RUN npm install -g http-server
 WORKDIR /client
 
 # copy both 'package.json' and 'package-lock.json' (if available)
-COPY package*.json ./
+COPY ./client/package*.json ./
 
 # install project dependencies
 RUN npm install --prefix /var/task
