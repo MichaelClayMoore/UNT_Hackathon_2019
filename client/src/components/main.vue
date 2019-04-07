@@ -5,12 +5,13 @@
     dark
     clipped
     app
-  >
+    v-model="showing"
+    >
     <v-list>
       <v-list-tile
         v-for="item in items"
         :key="item.title"
-        @click=""
+        @click="run(item.title)"
       >
         <v-list-tile-action>
           <v-icon>{{ item.icon }}</v-icon>
@@ -22,21 +23,50 @@
       </v-list-tile>
     </v-list>
   </v-navigation-drawer>
-  <h1>{{msg}}</h1>
+<Map :style="{'padding':'5px'}"></Map>
+<v-layout align-center justify-center>
+<v-card :style="{'max-width':'500px', 'min-width':'100px'}">
+  <v-card-title>test</v-card-title>
+</v-card>
+</v-layout>
   </div>
 </template>
 
 <script>
+import Map from './map'
+import { mapState } from 'vuex'
 export default {
   name: 'main',
+  components:{Map},
+  computed: { ...mapState(['navShowing']),},
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
+      showing: true,
       items: [
           { title: 'Dashboard', icon: 'dashboard' },
           { title: 'Account', icon: 'account_box' },
           { title: 'Admin', icon: 'gavel' }
         ]
+    }
+  },
+  created: {
+
+  },
+  watch:{
+    navShowing(val){
+      console.log("WHOOAOOA")
+      this.showing = !this.showing
+    }
+  },
+  methods: {
+    doSomething()
+    {
+      console.log("TEST")
+    },
+    run(item)
+    {
+      console.log(this.navShowing)
     }
   }
 }

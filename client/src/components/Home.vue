@@ -1,17 +1,9 @@
 <template>
   <div class="hello">
     <v-toolbar dark color="primary" fixed clipped-left app>
-    <v-toolbar-title class="white--text">Title</v-toolbar-title>
+      <v-toolbar-side-icon @click="changeView()"></v-toolbar-side-icon>
+    <v-toolbar-title class="white--text">Access Map</v-toolbar-title>
     <v-spacer></v-spacer>
-    <v-btn icon>
-      <v-icon>search</v-icon>
-    </v-btn>
-    <v-btn icon>
-      <v-icon>apps</v-icon>
-    </v-btn>
-    <v-btn icon>
-      <v-icon>refresh</v-icon>
-    </v-btn>
     <v-btn icon>
       <v-icon>more_vert</v-icon>
     </v-btn>
@@ -21,22 +13,19 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
   name: 'Home',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App',
       showing: true,
-      items: [
-          { title: 'Dashboard', icon: 'dashboard' },
-          { title: 'Account', icon: 'account_box' },
-          { title: 'Admin', icon: 'gavel' }
-        ]
     }
   },
   methods:{
-    toggle(){
-      this.showing = !this.showing
+    changeView(){
+      console.log("TEST")
+      console.log(this.$store.state.navShowing)
+      this.$store.commit('setNavShowing');
     }
   }
 }
