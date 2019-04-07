@@ -5,13 +5,13 @@ RUN mkdir /app
 WORKDIR /app
 
 # copy both 'package.json' and 'package-lock.json' (if available)
-ADD package*.json ./
+COPY ./client/package*.json ./
 
 # install project dependencies
 RUN npm install
 
 # copy project files and folders to the current working directory (i.e. 'app' folder)
-COPY . .
+COPY ./client .
 
 # build app for production with minification
 RUN npm run build
