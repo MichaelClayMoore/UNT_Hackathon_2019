@@ -1,4 +1,4 @@
-s# make the 'app' folder the current working directory
+# make the 'app' folder the current working directory
 WORKDIR /app
 
 # copy both 'package.json' and 'package-lock.json' (if available)
