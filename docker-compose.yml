@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  frontend:
+    build: // path to frontend Dockerfile
+    ports:
+      - "host:service" // change this, would recommend host == 80
+    restart: always
+
+  backend:
+    build: // path to backend Dockerfile
+    ports:
+      - "host:service"
+    restart: always
+
+  database:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - "datastore:/data/db"
+
+  database-inspector:
+    image: mongoclient/mongoclient
+    restart: always
+    ports:
+      - "3000:3000"
