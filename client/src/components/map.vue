@@ -7,7 +7,9 @@
   <v-card :style="{'width':'98%','height':'600px'}">
     <v-card-title>test</v-card-title>
     <v-card-actions>
-      <div class="mapbox" id="map" :style="{'min-height':'500px', 'max-height':'1500px', 'width':'98%'}"></div>
+      <v-layout justify-center align-center>
+        <div class="mapbox" id="map" :style="{'min-height':'500px', 'max-height':'1500px', 'width':'98%','z-index':'0'}"></div>
+      </v-layout>
     </v-card-actions>
   </v-card>
 </v-layout>
@@ -25,6 +27,15 @@ export default {
   },
   mounted () {
     this.map = L.map('map').setView([38.63, -90.23], 12);
+
+    let context = this
+    navigator.geolocation.getCurrentPosition(function(location) {
+      console.log(location.coords.latitude);
+      console.log(location.coords.longitude);
+      console.log(location.coords.accuracy);
+      context.map.panTo([location.coords.latitude,location.coords.longitude])
+      console.log("CENTER: ", context.map.center)
+});
     this.tileLayer = L.tileLayer(
       'https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}.png',
       {

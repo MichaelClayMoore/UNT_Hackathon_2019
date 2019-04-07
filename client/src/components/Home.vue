@@ -2,7 +2,7 @@
   <div class="hello">
     <v-toolbar dark color="primary" fixed clipped-left app>
       <v-toolbar-side-icon @click="changeView()"></v-toolbar-side-icon>
-    <v-toolbar-title class="white--text">Access Map</v-toolbar-title>
+    <v-toolbar-title class="white--text" @click="test()">Access Map</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-btn icon>
       <v-icon>more_vert</v-icon>
@@ -23,9 +23,10 @@ export default {
   },
   methods:{
     changeView(){
-      console.log("TEST")
-      console.log(this.$store.state.navShowing)
       this.$store.commit('setNavShowing');
+    },
+    test(){
+      this.$store.dispatch('test')
     }
   }
 }
