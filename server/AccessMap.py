@@ -19,4 +19,4 @@ app.register_blueprint(test_page)
 
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
-    app.run(0.0.0.0)
+    app.run('0.0.0.0', debug=True)
