@@ -21,8 +21,8 @@ services:
     volumes:
       - "datastore:/data/db"
 
-  database-inspector:
-    image: mongoclient/mongoclient
-    restart: always
-    ports:
-      - "3000:3000"
+  # database-inspector:
+  #   image: mongoclient/mongoclient
+  #   restart: always
+  #   ports:
+  #     - "3000:3000"
