@@ -2,13 +2,13 @@ version: '3'
 
 services:
   frontend:
-    build: "./client/frontend.dockerfile"
+    build: ./client/frontend.dockerfile
     ports:
       - "80:8080"
     restart: always
 
   backend:
-    build: "./server/backend.dockerfile"
+    build: ./server/backend.dockerfile
     ports:
       - "5000:5000"
     restart: always
