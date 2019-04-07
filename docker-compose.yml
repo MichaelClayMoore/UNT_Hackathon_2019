@@ -2,15 +2,15 @@ version: '3'
 
 services:
   frontend:
-    build: // path to frontend Dockerfile
+    build: "./client/frontend.dockerfile"
     ports:
-      - "host:service" // change this, would recommend host == 80
+      - "80:8080" // change this, would recommend host == 80
     restart: always
 
   backend:
-    build: // path to backend Dockerfile
+    build: "./server/backend.dockerfile"
     ports:
-      - "host:service"
+      - "5001:5000"
     restart: always
 
   database:
