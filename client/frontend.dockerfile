@@ -1,3 +1,5 @@
+FROM node:lts-alpine
+
 # make the 'app' folder the current working directory
 WORKDIR /app
 
@@ -12,3 +14,6 @@ COPY . .
 
 # build app for production with minification
 RUN npm run build
+
+# start client Server
+CMD npm run dev
