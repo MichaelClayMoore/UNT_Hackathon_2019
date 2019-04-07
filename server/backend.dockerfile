@@ -5,7 +5,7 @@ WORKDIR /app
 
 ADD requirements.txt ./
 
-RUN pip install -r requirements.txt
+RUN pip install -r ./server/requirements.txt
 
 ADD ./ ./
 
