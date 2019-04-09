@@ -30,11 +30,7 @@ export default {
 
     let context = this
     navigator.geolocation.getCurrentPosition(function(location) {
-      console.log(location.coords.latitude);
-      console.log(location.coords.longitude);
-      console.log(location.coords.accuracy);
       context.map.panTo([location.coords.latitude,location.coords.longitude])
-      console.log("CENTER: ", context.map.center)
 });
     this.tileLayer = L.tileLayer(
       'https://cartodb-basemaps-{s}.global.ssl.fastly.net/rastertiles/voyager/{z}/{x}/{y}.png',
